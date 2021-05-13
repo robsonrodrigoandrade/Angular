@@ -17,7 +17,8 @@ export class AtividadeComponent implements OnInit {
   }
 
   addItem() {
-    this.lista.push(this.model.value.task);
+    if (!this.lista.includes(this.model.value.task))
+      this.lista.push(this.model.value.task);
   }
 
   validarPalindromo(text: String) {
@@ -30,6 +31,11 @@ export class AtividadeComponent implements OnInit {
       .toUpperCase();
 
     return original === invertido;
+  }
+
+  nrcaracteres(text: String) {
+    let str = ' - Este palíndromo tem : ' + text.length + ' caracteres.';
+    return str;
   }
 
   ngOnInit(): void {

@@ -15,7 +15,7 @@
   <ul>
     <li *ngFor="let item of lista">
       <span *ngIf="validarPalindromo(item)" class="palindromoOK">
-        {{ item }}
+        {{ item }} {{ nrcaracteres(item) }}
       </span>
       <span *ngIf="!validarPalindromo(item)" class="palindromoNOK">
         {{ item }}
