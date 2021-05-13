@@ -1,0 +1,21 @@
+<div [formGroup]="model">
+  <label>
+    Palíndromo:
+    <input
+      autofocus
+      name="task"
+      formControlName="task"
+      (ngModel)="(model.value.task)"
+      type="text"
+      (keyup.enter)="addTask()"
+    />
+  </label>
+
+  <p>Lista de Palíndromos:</p>
+
+  <ul>
+    <li *ngFor="let task of tasks">
+      {{ task }}
+    </li>
+  </ul>
+</div>
