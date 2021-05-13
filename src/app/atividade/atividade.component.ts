@@ -7,20 +7,29 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./atividade.component.css'],
 })
 export class AtividadeComponent implements OnInit {
-  tasks: String[] = [];
+  lista: String[] = [];
   model: FormGroup = new FormGroup({});
 
   constructor() {
-    this.tasks.push('osso');
-    this.tasks.push('ovo');
-    this.tasks.push('A grama é amarga');
-    this.tasks.push(
-      'Me vê se a panela da moça é de aço, Madalena Paes, e vem.'
-    );
+    this.lista.push('osso');
+    this.lista.push('ovo');
+    this.lista.push('A grama é amarga');
   }
 
-  addTask() {
-    this.tasks.push(this.model.value.task);
+  addItem() {
+    this.lista.push(this.model.value.task);
+  }
+
+  validarPalindromo(text: String) {
+    let original: String = text.replace(/[^0-9a-z]/gi, '').toUpperCase();
+    let invertido: String = text
+      .split('')
+      .reverse()
+      .join('')
+      .replace(/[^0-9a-z]/gi, '')
+      .toUpperCase();
+
+    return original === invertido;
   }
 
   ngOnInit(): void {
